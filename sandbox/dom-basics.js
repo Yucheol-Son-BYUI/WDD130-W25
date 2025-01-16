@@ -13,10 +13,14 @@ newDiv.innerHTML = `<ul><li>${name1}</li><li>Two</li><li>Three</li></ul>`;
 document.body.appendChild(newDiv);
 
 const newSection = document.createElement("section");
-
-const newH2 = document.createElement("h2");
-newH2.innerText = "DOM Basics";
-newSection.appendChild(newH2);
+const title = "DOM Basics";
+const subtitle = "Creating elements and appendint them to the DOM";
+const content = "new Content";
+newSection.innerHTML = `
+<h2>${title}</h2>
+<h3>${subtitle}</h3>
+<p>${content}</p>
+`;
 
 const newp = document.createElement("p");
 newp.innerText = "This was added through Javascript";
@@ -24,3 +28,19 @@ newSection.appendChild(newp);
 
 document.body.appendChild(newSection);
 // document.body.append(newSection); //it works to!
+
+const ingredientData = ["Pinto Beans", "Corn", "Spices", "Tortillas"];
+const portionData = ["1 15oz can", "1 15oz can", "1 Tbsp", "8"];
+
+let ingredientString = `<h2>Ingredient</h2><ul>`;
+// for(i = 0; i<ingredientData.length;i++){
+//     ingredientString += `<li>${ingredientData[i]}<ul><li>${portionData[i]}</li></ul></li>`
+// };
+ingredientData.forEach((element, i) => {
+    ingredientString += `<li>${element}<ul><li>${portionData[i]}</li></ul></li>`
+})
+
+ingredientString+= `</ul>`;
+
+
+document.body.innerHTML += ingredientString;
