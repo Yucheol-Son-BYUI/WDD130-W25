@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+:root {
+    --primary-color: #52489c;
+    --secondary-color: #59c3c3;
+    --accent-color: #f45b69;
+    --text-dark: #333;
+    --text-light: #ebebeb;
+    --primary-font: Arial, Helvetica,sans-serif;
+    --secondary-font: Mooli, san-serif;
+    }
+*{
+    margin: 0;
+    font-family: 'Mooli', Arial, Helvetica, sans-serif;
+}
+html{
+    font-size: 1.4em;
+}
+
+header, footer{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+header{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    nav{
+        width: 100%;
+        #mobileMenu{
+            display: none;
+            padding: 0;
+            width: 100%;
+            background-color: var(--primary-color);
+            border: none;
+            color: white;
+            font-size: 1.4em;
+        }
+        ul{
+            padding: 0;
+            width: 80%;
+            margin: 0.5em auto;
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        a{
+            color: white;
+        }
+    }
+}
+
+@media screen and (max-width:1000px){
+    header nav{
+        #mobileMenu{
+            display: block;
+        }
+        ul{
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3em;
+            li{
+                width: fit-content;
+            }
+        }
+        ul.hide{
+            display: none;
+        }
+    }
+}
+
+
+main{
+    @media screen and (min-width:1000px) {
+        section{
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+    @media screen and (min-width: 700px) and (max-width:1000px) {
+        section{
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    
+    @media screen and (max-width:700px){
+        section{
+            grid-template-columns: 1fr;
+        }
+    }
+
+    h1{
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+    background-color: var(--text-light);
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    section{
+        margin: 0 auto;
+        display: grid;
+        grid-gap: 1rem;
+
+        figure{
+            max-width: 100%;
+            width: fit-content;
+            height: fit-content;
+            img{
+                max-width: 100%;
+                width: 250px;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                border: 5px solid white;
+                box-shadow: #333 5px 5px 2px;
+            }
+        }
+    }
+}
+
+footer{
+    padding: 0.5em;
+    p{
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+
+/* Modal */
+div.viewer.hide{
+    display: none;
+}
+div.viewer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1em;
+    gap: 0.5em;
+    box-sizing: border-box;
+    width: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    @media screen and (min-width:1000px) {
+        width: 80vw;
+        height: 90vh;
+        top: 5vh;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    background-color: rgba(0,0,0,0.75);
+
+    button{
+        width: 100%;
+        color: white;
+        font-size: 2em;
+        background: none;
+        border: none;
+    }
+
+    img{
+        max-width: 100%;
+        max-height: 90%;
+        width: 100%;
+        object-fit: contain;
+        @media screen and (min-width:1000px){
+            max-width: 100%;
+            max-height: 85%;
+
+        }
+    }
+}

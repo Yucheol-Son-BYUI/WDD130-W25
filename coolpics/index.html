@@ -1,16 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="coolpics.css">
-    <meta name="description" content="Gallery for Cool Pictures">
-    <meta name="author" content="Yucheol Arthor Son">
-     
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="coolpics.css" />
+    <meta name="description" content="Gallery for Cool Pictures" />
+    <meta name="author" content="Yucheol Arthor Son" />
+
     <script src="coolpics.js" defer></script>
     <title>Cool Pictures</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <header>
+      <h1>Cool Pics📷</h1>
+      <!-- this nav used in both mobile and PC -->
+      <nav>
+        <button id="mobileMenu">Menu</button>
+        <ul class="hide">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">People</a></li>
+          <li><a href="#">Places</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Current Work</h1>
+      <section class="gallery">
+        <figure><img src="./norris-sm.jpeg" alt="picture" /></figure>
+        <figure><img src="./norris-sm.jpeg" alt="picture" /></figure>
+        <figure><img src="./norris-sm.jpeg" alt="picture" /></figure>
+        <figure><img src="./norris-sm.jpeg" alt="picture" /></figure>
+        <figure><img src="./norris-sm.jpeg" alt="picture" /></figure>
+        <figure><img src="./norris-sm.jpeg" alt="picture" /></figure>
+        <figure><img src="./norris-sm.jpeg" alt="picture" /></figure>
+        <figure><img src="./norris-sm.jpeg" alt="picture" /></figure>
+        <figure><img src="./norris-sm.jpeg" alt="picture" /></figure>
+      </section>
+    </main>
+    <footer><p>©2023 Not a real site 😀</p></footer>
+
+    <!-- modal -->
+    <div class="viewer hide">
+      <img src="./norris-full.jpeg " alt="alt description" />
+      <button class="close-viewer">X</button>
+    </div>
+  </body>
 </html>
