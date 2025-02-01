@@ -1,0 +1,18 @@
+*{
+  font-family: cursive, monospace, sans-serif;
+  --gold: #EFC69B;
+  --red: #AF1B3F;
+  --dark: #473144;
+  margin: 0;
+}
+
+header{
+  width: 100%;
+  padding: 1em;
+  h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2em;
+    width: fit-content;
+    margin: 0 auto;
+  }
+}
