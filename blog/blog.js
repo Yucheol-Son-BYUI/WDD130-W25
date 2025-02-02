@@ -54,7 +54,8 @@ function reviewTemplate(review){
 
 function addReviewCard(reviewCard_HTML){
 	const reviewContainer_SEC = document.querySelector("#reviewContainer")
-	reviewContainer_SEC.innerHTML += reviewCard_HTML
+	reviewContainer_SEC.innerHTML = reviewCard_HTML
 }
 
-reviews.map(review => addReviewCard(reviewTemplate(review)))
+const reviewCardsSTR = reviews.reduce((acc, item) => acc + reviewTemplate(item), "")
+addReviewCard(reviewCardsSTR)

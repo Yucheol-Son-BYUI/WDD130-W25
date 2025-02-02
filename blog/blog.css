@@ -110,6 +110,7 @@ main{
         color: var(--red);
         text-decoration: none;
         font-style: italic;
+        white-space: nowrap;
       }
     }
   }
