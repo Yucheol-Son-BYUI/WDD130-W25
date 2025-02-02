@@ -1,4 +1,4 @@
-const articles = [
+const reviews = [
 	{
 		id: 1,
 		title: 'Septimus Heap Book One: Magyk',
@@ -25,3 +25,36 @@ const articles = [
 		stars: '⭐⭐⭐⭐'
 	}
 ]
+
+
+function reviewTemplate(review){
+	let result = `<article class="review-card">
+	<figure class="book-info">
+	<img
+	src="${review.imgSrc}"
+	alt="${review.imgAlt}"
+	/>
+	<ul class="book-metadata">
+	<li class="book-title">${review.title}</li>
+	<li class="rating">${review.stars}</li>
+	<li>Age <span class="value">: ${review.ages}</span></li>
+	<li>Genre <span class="value">: ${review.genre}</span></li>
+	<li>Date <span class="value">: ${review.date}</span></li>
+	</ul>
+	</figure>
+	<article class="book-review">
+	<p>
+	${review.description}
+	<a href="#">Read More...</a>
+	</p>
+	</article>
+	</article>`; 
+	return result;
+}
+
+function addReviewCard(reviewCard_HTML){
+	const reviewContainer_SEC = document.querySelector("#reviewContainer")
+	reviewContainer_SEC.innerHTML += reviewCard_HTML
+}
+
+reviews.map(review => addReviewCard(reviewTemplate(review)))
