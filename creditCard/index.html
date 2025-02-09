@@ -27,7 +27,8 @@
             type="text"
             placeholder="1234 5678 9101 1020"
             name="cardHolder"
-            id="cardHolder"
+            id="cardNumber"
+            required
           />
         </div>
         <div class="cardInfo cardHolder">
@@ -37,6 +38,7 @@
             placeholder="Jone Doe"
             name="cardHolder"
             id="cardHolder"
+            required
           />
         </div>
         <div class="cardInfo expiration">
@@ -47,24 +49,27 @@
               name="expirationMM"
               id="expirationMM"
               placeholder="MM"
+              required
             />
             <input
               type="number"
               name="expirationYY"
               id="expirationYY"
               placeholder="YY"
+              required
             />
           </div>
         </div>
       </div>
       <div class="card card-back">
         <div class="blackBelt"></div>
-        <div class="cvc">
-          <span class="infoTitle">CVC/CVV</span>
-          <input type="number" name="cvc" id="cvc" placeholder="xxx" />
+          <div class="cvc">
+            <span class="infoTitle">CVC/CVV</span>
+            <input type="number" name="cvc" id="cvc" placeholder="xxx" required style="z-index:1;" />
+          </div>
         </div>
-      </div>
       <button type="submit">Submit</button>
+      <p class="errorMsg"></p>
     </form>
   </body>
 </html>
