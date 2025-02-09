@@ -1,0 +1,59 @@
+<!-- form-demo.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout Form</title>
+    <link rel="stylesheet" href="form-demo.css" />
+    <script src="form-demo.js" defer></script>
+  </head>
+  <body>
+    <header><h1>Checkout</h1></header>
+    <main>
+      <section class="errors"></section>
+      <form id="checkoutForm" action="completed.html" method="get">
+        <fieldset>
+          <legend>Personal Information</legend>
+          <p>
+            <label for="name"><b>Full Name:</b></label
+            ><br /><input type="text" id="name" name="name" required />
+          </p>
+          <p>
+            <label for="email"><b>Email: </b></label><br /><input
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+          </p>
+          <p>
+            <label for="address"><b>Address: </b></label><br />
+            <textarea name="address" id="address"></textarea>
+          </p>
+          <input type="checkbox" name="newsletterChk" id="newsletterChk"> <label for="newsletterChk">Sign Up for Newsletter</label>
+        </fieldset>
+        <fieldset>
+          <legend>Payment Information</legend>
+          <p>
+            <label for="paymentMethod"><b>Payment Method: </b></label><br />
+            <select name="paymentMethod" id="paymentMethod" required>
+              <option>Select Payment Method</option>
+              <option value="0">Credit Card</option>
+              <option value="1">Paypal</option>
+            </select>
+          </p>
+          <p class="hide" id="creditCardContainer" >
+            <label for="creditCardNumber"><b>Credit Card Number: </b></label
+            ><br /><input type="text" id="creditCardNumber" pattern="[0-9]{16}" required />
+          </p>
+          <p class="hide" id="paypalContainer">
+            <label for="paypalUsername"><b>Paypal Username: </b></label
+            ><br /><input type="text" id="paypalUsername" required />
+          </p>
+        </fieldset>
+        <button type="submit">Place Order</button>
+      </form>
+    </main>
+  </body>
+</html>
