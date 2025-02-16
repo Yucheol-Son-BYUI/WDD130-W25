@@ -4,32 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Enter Card</title>
-    <link rel="stylesheet" href="recipes.css" />
+    <!-- <link rel="stylesheet" href="recipes.css" /> -->
+    <link rel="preload" href="recipes.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <meta name="description" content="CardNumber input form" />
     <meta name="author" content="Yucheol Arthor Son" />
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
+    <!-- SNS meta tag -->
+    <meta property="og:title" content="Apple Crsip">
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Recipie for Applie Crisp">
+    <meta property="og:image" content="https://yucheol-son-byui.github.io/WDD130-W25/recipes/images/apple-crisp.jpg">
+    <meta property="og:url" content="https://yucheol-son-byui.github.io/WDD130-W25/recipes/index.html">
+    <meta name="twitter:card" content="https://yucheol-son-byui.github.io/WDD130-W25/recipes/images/apple-crisp.jpg">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    /> -->
+    <!-- Bootstrap Icons CDN -->
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    /> -->
+    
+    
+<!-- preload image -->
+<!-- <link rel="preload" as="image" href="images/apple-crisp.jpg" type="image/jpeg">
+<link rel="preload" as="image" href="images/black-beans-and-rice.jpg" type="image/jpeg">
+<link rel="preload" as="image" href="images/chicken-curry.webp" type="image/jpeg">
+<link rel="preload" as="image" href="images/chocolate-chip-cookies.jpg" type="image/jpeg">
+<link rel="preload" as="image" href="images/escalopes-de-poulet-a-la-creme.webp" type="image/jpeg">
+<link rel="preload" as="image" href="images/german-gooseberry-cake.jpg" type="image/jpeg">
+<link rel="preload" as="image" href="images/roasted-potatoes.webp" type="image/jpeg">
+<link rel="preload" as="image" href="images/sweet-potato-waffle-md.jpg" type="image/jpeg"> -->
     <script src="recipes.js" defer></script>
   </head>
   <body>
-    <header></header>
-    <main>
+    <header>
+      <img src="images/recipe-book.png" alt="RECIPE BOOK LOGO" />
+      <h1>RECIPEBOOK</h1>
+      <form class="search" action="#" id="searchForm">
+        <input name="searchKeyword" type="text" placeholder="Find a Recipe" />
+        <button type="submit" aria-label="search Button"><i class="bi bi-search"></i></button>
+      </form>
+    </header>
+    <main id="recipes">
       <article>
-        <img src="images/apple-crisp.jpg" alt="apple pie image" />
-        <div class="tag"></div>
-        <span class="rating" role="img" aria-label="Rating: 4 out of 5 stars">
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star-empty">⭐</span>
-          <span aria-hidden="true" class="icon-star-empty">☆</span>
-        </span>
-        <p class="recipe-description"></p>
+        <figure class="food-img"><img src="#" alt="${recipe.description}" /></figure>
+        <section class="food-data">
+          <div class="tags"></div>
+          <div class="food-title">
+            <p class="food-name"></p>
+            
+          </div>
+          <p class="recipe-description">${recipe.description}</p>
+        </section>
       </article>
     </main>
     <footer>
-      <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons"
-        >Recipe icons created by Freepik - Flaticon</a
-      >
       <div class="social">
         <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates  -->
         <a href="#"
@@ -40,6 +75,9 @@
           ><img src="images/pinterest_icon.svg" alt="pinterest icon"
         /></a>
       </div>
+      <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons"
+        >Recipe icons created by Freepik - Flaticon</a
+      >
     </footer>
   </body>
 </html>
