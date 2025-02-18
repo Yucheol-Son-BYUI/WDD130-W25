@@ -24,7 +24,7 @@ for(i=1;i<=5;i++){if(i<=rating)html+=`<span aria-hidden="true" class="icon-star"
 html+=`</span>`;
 // return the html string
 return html}function recipeTemplate(recipe){let tagsHTML=recipe.tags.map(tagTemplate).join("");let ratingHTML=ratingTemplate(recipe.rating);return`<article>
-        <figure class="food-img"><img src="${recipe.image}" alt="${recipe.description}" /></figure>
+        <figure class="food-img"><img src="${recipe.image}" alt="${recipe.description}" width="300px" height="200px"/></figure>
         <section class="food-data">
           <div class="tags">${tagsHTML}</div>
           <div class="food-title">

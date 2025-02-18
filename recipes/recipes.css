@@ -101,7 +101,10 @@ main {
     flex-direction: column;
     gap: 0.3em;
 
+
     figure.food-img {
+      min-width: 300px;
+      min-height: 200px;
       flex: 1;
       img {
         width: 100%;
