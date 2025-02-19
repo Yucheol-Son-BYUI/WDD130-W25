@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const USERNAME = "Yucheol-Son-BYUI"; // 🔥 조회할 GitHub 사용자 이름 입력
 
 // const query = `
@@ -109,3 +110,7 @@ async function main() {
 }
 
 main();
+=======
+REPOS.then(data => console.log(data))
+CONTRIBUTION.then(data => console.log(data))
+>>>>>>> c56b596 (feat: fetch github data async)
