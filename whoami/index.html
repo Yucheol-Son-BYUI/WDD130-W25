@@ -7,10 +7,18 @@
   <meta name="description" content="Introduction to Yucheol Son" />
   <meta name="author" content="Yucheol Arthor Son" />
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-  <!-- <link rel="stylesheet" href="card.css" /> -->
+  <link rel="preload" href="whoami.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <script src="whoami_fetch.js"></script>
   <script src="whoami.js" defer></script>
 </head>
 <body>
-  
+  <header></header>
+  <main>
+    <section class="profile"></section>
+    <section class="contribution-calendar"></section>
+    <section class="repositories"></section>
+    <section class="skills"></section>
+  </main>
+  <footer></footer>
 </body>
 </html>
