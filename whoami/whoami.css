@@ -1,0 +1,110 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+  color: var(--headline-color-on-white);
+}
+
+* {
+  font-family: var(--paragraph-font);
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+main {
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1em 5%;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+}
+
+header {
+  box-sizing: border-box;
+  width: 100%;
+  height: min-content;
+  background-color: var(--nav-background-color);
+  display: flex;
+  padding-right: 10em;
+  justify-content: center;
+
+  h1 {
+    display: flex; /* Flexbox로 설정 */
+    align-items: center; /* 세로 중앙 정렬 */
+    color: var(--headline-color-on-color);
+  }
+  h1::before {
+    content: ""; /* content는 반드시 설정해야 함 */
+    display: inline-block; /* 요소를 인라인 블록으로 설정 */
+    width: 5em; /* 이미지의 너비 */
+    height: 5em; /* 이미지의 높이 */
+    background-image: url("WhoAmI_transparent-.png"); /* 이미지 경로 */
+    background-size: cover; /* 이미지 크기를 요소에 맞게 조정 */
+    margin-right: 10px; /* 텍스트와 이미지 간의 간격 */
+  }
+}
+
+main {
+  width: 100%;
+  section.projects{
+    width: 100%;
+    ul{
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+      grid-gap: 1em;
+      list-style: none;
+      box-sizing: border-box;
+
+      li{
+        padding: 1em;
+        border: 1px solid black;
+        max-width: 100%;
+        min-width: 100px;
+      }
+
+      li:last-child{
+        grid-column: 1 / -1; /* 첫 번째 컬럼부터 마지막 컬럼까지 차지 */
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  section.skills{
+    width: 100%;
+    ul{
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 1em;
+
+      li{
+        display: flex;
+        align-items: center;
+        background-color: aliceblue;
+        padding: 4px 7px;
+        border: 1px solid black;
+        border-radius: 5px;
+        img{
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+  
+}
+
+.contributionDay {
+  width: 10px;
+  height: 10px;
+}

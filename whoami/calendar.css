@@ -1,0 +1,44 @@
+main {
+  section.calendar {
+    table {
+      margin-left: 20%;
+      tbody td {
+        width: 2em;
+        height: 2em;
+        text-align: start;
+        vertical-align: top;
+        border: 1px solid black;
+
+        position: relative;
+        /* display: inline-block; */
+        cursor: pointer;
+        margin: 1px;
+      }
+      tbody td:hover {
+        background-color: grey;
+      }
+      tbody td::after {
+        /* tooltip */
+        content: "Available Time: \a" attr(data-available-time) "\a 07:00~08:00 \a 17:00~20:00";
+        width: max-content;
+        white-space: pre-line;
+        position: absolute;
+        left: 50%;
+        bottom: 120%;
+        transform: translateX(-50%);
+        background-color: black;
+        color: white;
+        padding: 6px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out;
+      }
+      tbody td:hover::after {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
