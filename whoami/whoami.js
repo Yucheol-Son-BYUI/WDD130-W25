@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+const GITHUB_READONLY_TOKEN = "gh" + "p_4boFYPrxAUM59JRt" + "AmLqnyAfIwqQtx2QiqN9"; 
 const USERNAME = "Yucheol-Son-BYUI"; // 🔥 조회할 GitHub 사용자 이름 입력
 
 // const query = `
@@ -111,32 +110,3 @@ async function main() {
 }
 
 main();
-=======
-REPOS.then(data => console.log(data))
-CONTRIBUTION.then(data => console.log(data))
->>>>>>> c56b596 (feat: fetch github data async)
-=======
-var temp;
-function renderContributionCalendar(data){
-  const calendarTable = document.querySelector("#calendar-table tbody");
-  console.log(data)
-  temp = data; 
-  let trHTML = Array(7).fill("")
-  for(day=0; day < 7; day++){
-    for(week=0;week < data.weeks.length;week++){
-      if(week == data.weeks.length - 1 && day >= data.weeks[week].contributionDays.length) continue;
-
-      const cur = data.weeks[week].contributionDays[day];
-      trHTML[day] += `<td class="contributionDay" style="background-color:${cur.color}" data-date="${cur.date}" data-contribution-count="${cur.contributionCount}"></td>`
-    }
-  }
-  let result = "";
-  trHTML.forEach(tr => result += `<tr>` + tr + `</tr>`)
-  calendarTable.insertAdjacentHTML("afterbegin", result)
-  
-}
-
-REPOS.then(data => console.log(data))
-CONTRIBUTION.then(renderContributionCalendar)
-
->>>>>>> a32c218 (layout)
