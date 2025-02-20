@@ -1,3 +1,4 @@
+const GITHUB_READONLY_TOKEN = "gh" + "p_4boFYPrxAUM59JRt" + "AmLqnyAfIwqQtx2QiqN9";
 const USERNAME = "Yucheol-Son-BYUI";
 
 async function fetchRepositories(username) {

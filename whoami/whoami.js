@@ -1,5 +1,5 @@
-const GITHUB_READONLY_TOKEN = "gh" + "p_4boFYPrxAUM59JRt" + "AmLqnyAfIwqQtx2QiqN9"; 
-const USERNAME = "Yucheol-Son-BYUI"; // 🔥 조회할 GitHub 사용자 이름 입력
+ 
+// const USERNAME = "Yucheol-Son-BYUI"; // 🔥 조회할 GitHub 사용자 이름 입력
 
 // const query = `
 //   query(${USERNAME}) {
@@ -44,7 +44,7 @@ async function fetchRepositories(username) {
   const url = `https://api.github.com/users/${username}/repos?per_page=100`;
 
   const response = await fetch(url, {
-    headers: { Authorization: `token ${GITHUB_TOKEN}` },
+    headers: { Authorization: `token ${GITHUB_READONLY_TOKEN}` },
   });
 
   if (!response.ok) {
@@ -77,7 +77,7 @@ async function fetchContributionCalendar(username) {
   const response = await fetch("https://api.github.com/graphql", {
     method: "POST",
     headers: {
-      Authorization: `bearer ${GITHUB_TOKEN}`,
+      Authorization: `bearer ${GITHUB_READONLY_TOKEN}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ query }),
