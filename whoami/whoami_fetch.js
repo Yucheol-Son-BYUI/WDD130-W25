@@ -126,8 +126,7 @@ function renderContributionCalendar(data) {
       ] += `<td class="contributionDay" style="background-color:${cur.color}" data-date="${cur.date}" data-contribution-count="${cur.contributionCount}"></td>`;
     }
   }
-  let result = "";
-  trHTML.forEach((tr) => (result += `<tr>` + tr + `</tr>`));
+  let result = trHTML.reduce((acc, tr) => acc += `<tr>` + tr + `</tr>`);
   calendarTable.insertAdjacentHTML("afterbegin", result);
 }
 
@@ -136,12 +135,12 @@ function renderRepositories(data) {
   const avatarUrl = data.user.avatarUrl;
   const repositories = data.user.repositories.nodes;
   console.log(repositories)
-  let result = "";
-  repositories.forEach(repo => result += repoTemplate(repo))
+  
+  const result = repositories.reduce((acc, repo) => acc + repoTemplate(repo), "")
+  console.log(result)
   repoList.insertAdjacentHTML("afterbegin", result);
 
   function repoTemplate(repo){
-    console.log("repoTemplate: ",repo)
     return `
     <li class="project"><figure class="projectLogo"><img src="${avatarUrl}" width="30px" height="30px"></figure><h3><a href="${repo.url}" target="blank">${repo.name}</a></h3><span class="language">${repo.primaryLanguage.name}</span><p>${repo.description == null ? "no description" : repo.description}</p></li>`
   }
