@@ -32,6 +32,14 @@ async function fetchRepositories() {
             primaryLanguage{
               name
             }
+              languages(first: 10) {
+          edges {
+            node {
+              name
+            }
+            size
+          }
+        }
             stargazerCount
           }
         }
@@ -132,35 +140,47 @@ function renderContributionCalendar(data) {
       ] += `<td class="contributionDay" style="background-color:${cur.color}" data-date="${cur.date}" data-contribution-count="${cur.contributionCount}"></td>`;
     }
   }
-  let result = trHTML.reduce((acc, tr) => acc += `<tr>` + tr + `</tr>`);
+  let result = trHTML.reduce((acc, tr) => (acc += `<tr>` + tr + `</tr>`));
   calendarTable.insertAdjacentHTML("afterbegin", result);
 }
 
 function renderRepositories(data) {
   const projectList = document.querySelector("#projectList");
-  const repoListMoreButton = document.querySelector("#projectList .moreProject");
+  const repoListMoreButton = document.querySelector(
+    "#projectList .moreProject"
+  );
   const avatarUrl = data.user.avatarUrl;
   const repositories = data.user.repositories.nodes;
-  
-  const result = repositories.reduce((acc, repo) => acc + repoTemplate(repo), "")
+
+  const result = repositories.reduce(
+    (acc, repo) => acc + repoTemplate(repo),
+    ""
+  );
   repoListMoreButton.insertAdjacentHTML("beforebegin", result);
 
   // render maximum 4 projects at first time
   const projects = document.querySelectorAll("#projectList .project");
-  for(i = 4; i < projects.length; i++){
-    projects[i].classList.add('hide');
+  for (i = 4; i < projects.length; i++) {
+    projects[i].classList.add("hide");
   }
 
-  if(projects.length <= 4){
+  if (projects.length <= 4) {
     repoListMoreButton.innerText = "no more projects";
-    repoListMoreButton.classList.add('disabled');
-  } else{
-    repoListMoreButton.innerText = Math.min(projects.length - 4, 4) + " more project";
+    repoListMoreButton.classList.add("disabled");
+  } else {
+    repoListMoreButton.innerText =
+      Math.min(projects.length - 4, 4) + " more project";
   }
 
-  function repoTemplate(repo){
+  function repoTemplate(repo) {
     return `
-    <li class="project"><figure class="projectLogo"><img src="${avatarUrl}" width="30px" height="30px"></figure><h3><a href="${repo.url}" target="blank">${repo.name}</a> <span class="language">${repo.primaryLanguage.name}</span></h3> <span class="star">⭐${repo.stargazerCount}</span><p>${repo.description == null ? "no description" : repo.description}</p></li>`
+    <li class="project"><figure class="projectLogo"><img src="${avatarUrl}" width="30px" height="30px"></figure><h3><a href="${
+      repo.url
+    }" target="blank">${repo.name}</a> <span class="language">${
+      repo.primaryLanguage.name
+    }</span></h3> <span class="star">⭐${repo.stargazerCount}</span><p>${
+      repo.description == null ? "no description" : repo.description
+    }</p></li>`;
   }
 }
 
