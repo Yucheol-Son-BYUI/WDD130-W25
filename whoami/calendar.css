@@ -124,4 +124,10 @@ main {
       font-weight: bold;
     }
   }
+
+  form{
+    input{
+      width: 3em;
+    }
+  }
 }

@@ -20,13 +20,12 @@ function main(){
   
 
   let tempDay = new Date(firstSunday);
-  console.log(tempDay, firstSunday)
   tds.forEach((cur) => {
     const daySpan = document.createElement('span');
 
     if(tempDay < now){
       cur.classList.add("disabled")
-    }else if(tempDay.valueOf() == now.valueOf()){
+    }else if(tempDay.getMonth() == now.getMonth() && tempDay.getDate() == now.getDate()){
       cur.classList.add('today')
     }
     let availableTimeText = "Available Time:\n" + availableTimes[tempDay.getDay()].join("\n");
@@ -66,7 +65,57 @@ function renderTimeList(e){
     return `<li>${time}</li>`
   }
 }
+function submitHandler(e){
+  e.preventDefault();
+  const value = this.timeToMeet.value;
+  if(!value.includes(":"))
+    return false;
+  
+  const timeText = value.split(":")
+  const hour = parseInt(timeText[0])
+  const minute = parseInt(timeText[1])
+  if(isNaN(hour) || isNaN(minute))
+    return false;
+  
+  const tds = Array.from(document.querySelectorAll(".calendar tbody td"));
+  const availableDays = tds.filter(filterAvailableDay);
+  tds.forEach(day => day.style.backgroundColor='white')
+  availableDays.forEach(day => day.style.backgroundColor='#f9ff5e')
 
+  function filterAvailableDay(td){
+    const today = new Date(td.dataset.date);
+    let availableTimeArray = td.dataset.availableTime.split("\n");
+    availableTimeArray = availableTimeArray.splice(1,availableTimeArray.length-1);
+    availableTimeArray = availableTimeArray.map(timeRangeToDateArray) // [[18:00, 21:00], [21:00, 22:00]]
+    
+    const searchDate = new Date(today)
+    searchDate.setHours(hour)
+    searchDate.setMinutes(minute);
+
+    for(i = 0; i < availableTimeArray.length; i++){
+      if(searchDate >= availableTimeArray[i][0] && searchDate < availableTimeArray[i][1])
+        return true;
+    }
+    return false;
+    // availableTimeArray.
+    
+    function timeRangeToDateArray(timeRange){
+      const timeRangeArr = timeRange.split("~");
+      const firstTimeArr = timeRangeArr[0].split(":")
+      const secondTimeArr = timeRangeArr[1].split(":")
+      
+      const firstDate = new Date(today);
+      firstDate.setHours(parseInt(firstTimeArr[0]))
+      firstDate.setMinutes(parseInt(firstTimeArr[1]))
+      const secondDate = new Date(today);
+      secondDate.setHours(parseInt(secondTimeArr[0]))
+      secondDate.setMinutes(parseInt(secondTimeArr[1]))
+
+      return [firstDate,secondDate]
+    }
+  }
+}
 main()
 
 document.querySelector(".calendar tbody").addEventListener('click', renderTimeList);
+document.querySelector("#search").addEventListener('submit', submitHandler);
