@@ -39,6 +39,7 @@ header {
     display: flex; /* Flexbox로 설정 */
     align-items: center; /* 세로 중앙 정렬 */
     color: var(--headline-color-on-color);
+    user-select: none;
   }
   h1::before {
     content: ""; /* content는 반드시 설정해야 함 */
@@ -138,12 +139,14 @@ main {
           background-color: rgb(219, 219, 219);
           border-radius: 5px;
           font-size: 0.7em;
+          user-select: none;
         }
 
         span.star{
           width: min-content;
           align-self: flex-start;
           justify-self: flex-end;
+          user-select: none;
         }
 
         p{
@@ -159,10 +162,17 @@ main {
         }
       }
 
+      /* more button */
       li:last-child {
         grid-column: 1 / -1; /* 첫 번째 컬럼부터 마지막 컬럼까지 차지 */
         display: flex;
         justify-content: center;
+        background-color: var(--nav-background-color);
+        border-radius: 1em;
+        cursor: pointer;
+        font-size: 1.5em;
+        padding: 0.5em;
+        font-weight: bold;
       }
     }
   }
@@ -187,6 +197,7 @@ main {
         img {
           margin-right: 5px;
         }
+        user-select: none;
       }
     }
   }
