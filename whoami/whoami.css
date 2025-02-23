@@ -61,6 +61,12 @@ main {
   border-left: 1px solid grey;
   border-right: 1px solid grey;
 
+  section.profile{
+    h2{
+      display: inline-block;
+    }
+  }
+
   section.contribution-calendar {
     width: 100%;
     span.calendarTitle{
@@ -257,3 +263,15 @@ main {
   }
 }
 
+footer{
+  width: 100%;
+  padding: 2em 15%;
+  background-color: rgb(92, 92, 92);
+  color: white;
+  h2{
+    color: white;
+  }
+  a{
+    color:white;
+  }
+}

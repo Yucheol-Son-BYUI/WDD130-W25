@@ -7,6 +7,10 @@ h6 {
   font-family: var(--heading-font);
   color: var(--headline-color-on-white);
 }
+
+* {
+  font-family: var(--paragraph-font);
+}
 .modalButton{
   background: none;
   border: none;
@@ -34,8 +38,14 @@ header {
     align-items: center; /* 세로 중앙 정렬 */
     color: var(--headline-color-on-color);
     user-select: none;
+    a{
+      color: inherit;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
   }
-  h1::before {
+  a::before {
     content: ""; /* content는 반드시 설정해야 함 */
     display: inline-block; /* 요소를 인라인 블록으로 설정 */
     width: 5em; /* 이미지의 너비 */
@@ -157,7 +167,21 @@ main {
     }
   }
 }
-
+footer{
+  width: 100%;
+  padding: 2em 15%;
+  background-color: rgb(92, 92, 92);
+  color: white;
+  h2{
+    color: white;
+  }
+  a{
+    color: white;
+  }
+  ul {
+    padding-left: 0;
+  }
+}
 
 dialog {
   border: none;
