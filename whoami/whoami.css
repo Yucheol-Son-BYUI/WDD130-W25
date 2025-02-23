@@ -33,7 +33,7 @@ header {
   height: min-content;
   background-color: var(--nav-background-color);
   display: flex;
-  padding-right: 10em;
+  /* padding-right: 10em; */
   justify-content: center;
 
   h1 {
@@ -52,26 +52,49 @@ header {
   }
 }
 
+ul {
+  padding-left: 0;
+}
 main {
-  width: 100%;
-  section.projects{
+  section.contribution-calendar {
     width: 100%;
-    ul{
+    div {
+      width: 100%;
+      overflow-x: auto;
+      table {
+        width: 100%;
+        table-layout: fixed;
+        td {
+          width: 1.3em;
+          height: 1.3em;
+        }
+        td:first-child{
+          width: 2em;
+          height: 1em;
+        }
+      }
+    }
+  }
+
+  section.projects {
+    width: 100%;
+    ul {
       display: grid;
       width: 100%;
-      grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       grid-gap: 1em;
       list-style: none;
       box-sizing: border-box;
 
-      li{
+      li {
+        display: grid;
         padding: 1em;
         border: 1px solid black;
         max-width: 100%;
         min-width: 100px;
       }
 
-      li:last-child{
+      li:last-child {
         grid-column: 1 / -1; /* 첫 번째 컬럼부터 마지막 컬럼까지 차지 */
         display: flex;
         justify-content: center;
@@ -79,32 +102,37 @@ main {
     }
   }
 
-  section.skills{
+  section.skills {
     width: 100%;
-    ul{
+    ul {
+      box-sizing: border-box;
       list-style: none;
       display: flex;
       flex-wrap: wrap;
       width: 100%;
       gap: 1em;
 
-      li{
+      li {
         display: flex;
         align-items: center;
         background-color: aliceblue;
         padding: 4px 7px;
         border: 1px solid black;
         border-radius: 5px;
-        img{
+        img {
           margin-right: 5px;
         }
       }
     }
   }
-  
+  section.contact {
+    ul {
+      padding-left: 1em;
+    }
+  }
 }
-
-.contributionDay {
-  width: 10px;
-  height: 10px;
+@media screen and (max-width: 650px) {
+  main section.projects ul {
+    grid-template-columns: 1fr;
+  }
 }

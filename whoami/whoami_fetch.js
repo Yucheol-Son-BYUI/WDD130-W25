@@ -112,6 +112,13 @@ function renderContributionCalendar(data) {
   console.log(data);
   temp = data;
   let trHTML = Array(7).fill("");
+  trHTML[0] = `<td>Sun</td>`;
+  trHTML[1] = `<td>Mon</td>`;
+  trHTML[2] = `<td>Tue</td>`;
+  trHTML[3] = `<td>Wed</td>`;
+  trHTML[4] = `<td>Thu</td>`;
+  trHTML[5] = `<td>Fri</td>`;
+  trHTML[6] = `<td>Sat</td>`;
   for (day = 0; day < 7; day++) {
     for (week = 0; week < data.weeks.length; week++) {
       if (
