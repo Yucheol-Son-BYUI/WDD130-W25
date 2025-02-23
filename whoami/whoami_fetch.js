@@ -109,7 +109,6 @@ main();
 var temp;
 function renderContributionCalendar(data) {
   const calendarTable = document.querySelector("#calendar-table tbody");
-  console.log(data);
   temp = data;
   let trHTML = Array(7).fill("");
   trHTML[0] = `<td>Sun</td>`;
@@ -138,21 +137,25 @@ function renderContributionCalendar(data) {
 }
 
 function renderRepositories(data) {
-  
+  const projectList = document.querySelector("#projectList");
   const repoListMoreButton = document.querySelector("#projectList .moreProject");
   const avatarUrl = data.user.avatarUrl;
   const repositories = data.user.repositories.nodes;
-  console.log(repositories)
   
   const result = repositories.reduce((acc, repo) => acc + repoTemplate(repo), "")
-  console.log(result)
   repoListMoreButton.insertAdjacentHTML("beforebegin", result);
 
   // render maximum 4 projects at first time
   const projects = document.querySelectorAll("#projectList .project");
-  console.log(projects)
   for(i = 4; i < projects.length; i++){
     projects[i].classList.add('hide');
+  }
+
+  if(projects.length <= 4){
+    repoListMoreButton.innerText = "no more projects";
+    repoListMoreButton.classList.add('disabled');
+  } else{
+    repoListMoreButton.innerText = Math.min(projects.length - 4, 4) + " more project";
   }
 
   function repoTemplate(repo){
