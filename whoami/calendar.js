@@ -36,7 +36,7 @@ function main(){
       dayText.style.borderRadius = '50%';
       dayText.style.border = '2px solid red';
     }
-    let availableTimeText = "Available Time:\n" + availableTimes[tempDay.getDay()].map(time => time + "\n").join("");
+    let availableTimeText = "Available Time:\n" + availableTimes[tempDay.getDay()].join("\n");
 
     cur.setAttribute("data-available-time",availableTimeText);
     dayText.innerText = tempDay.getDate();
@@ -58,10 +58,18 @@ function renderTimeList(e){
     return;
   }
   const timeList = document.querySelector("#timeList");
-  const availableTimeArray = e.target.dataset.availableTime.split("\n");
-  availableTimeArray.shift()
-  availableTimeArray.pop()
+  let availableTimeArray = e.target.dataset.availableTime.split("\n");
+  availableTimeArray = availableTimeArray.splice(1,availableTimeArray.length-1);
+  
   console.log(availableTimeArray)
+
+  const result = availableTimeArray.map(availTimeTemplate).join("");
+  timeList.innerHTML= result;
+
+
+  function availTimeTemplate(time){
+    return `<li>${time}</li>`
+  }
 }
 
 main()
