@@ -60,17 +60,43 @@ main {
     width: 100%;
     div {
       width: 100%;
-      overflow-x: auto;
+      overflow-x: scroll;
       table {
         width: 100%;
         table-layout: fixed;
         td {
           width: 1.3em;
           height: 1.3em;
+          position: relative;
         }
         td:first-child{
           width: 2em;
           height: 1em;
+        }
+        td:hover {
+          background-color: grey;
+        }
+        td::after {
+          /* tooltip */
+          content: "Available Time: \a";
+          width: max-content;
+          white-space: pre-line;
+          position: absolute;
+          left: 50%;
+          bottom: 120%;
+          transform: translateX(-50%);
+          background-color: black;
+          color: white;
+          padding: 6px 10px;
+          border-radius: 5px;
+          font-size: 14px;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.3s ease-in-out;
+        }
+        td:hover::after {
+          opacity: 1;
+          visibility: visible;
         }
       }
     }
