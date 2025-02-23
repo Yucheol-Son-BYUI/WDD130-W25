@@ -62,10 +62,9 @@ main {
         vertical-align: top;
         border: 1px solid black;
         font-size: 1em;
-        display: inline-block;
+        /* display: inline-block; */
 
         position: relative;
-        /* display: inline-block; */
         cursor: pointer;
         margin: 1px;
 
