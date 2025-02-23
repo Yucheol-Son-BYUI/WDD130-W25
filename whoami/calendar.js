@@ -60,7 +60,7 @@ function renderTimeList(e){
 
   const mailTo = document.querySelector(".calendar a");
   formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  mailTo.setAttribute("href","mailto:son20001@byui.edu?subject=Meeting Request for " + formattedDate + "&body=Dear [Recipient's Name],%0A%0AI hope this email finds you well. I would like to request a meeting with you on " + formattedDate +", to discuss [the purpose of the meeting].%0A%0APlease let me know if this date works for you or if another time would be more convenient.%0A%0AThank you for your time and consideration.%0A%0ABest regards, %0A [Your Name]")
+  mailTo.setAttribute("href","mailto:son20001@byui.edu?subject=Meeting Request for " + formattedDate + "&body=Dear Yucheol Arthur Son,%0A%0AI hope this email finds you well. I would like to request a meeting with you at [the time you want to meet] on " + formattedDate +", to discuss [the purpose of the meeting].%0A%0APlease let me know if this date works for you or if another time would be more convenient.%0A%0AThank you for your time and consideration.%0A%0ABest regards, %0A [Your Name]")
 
   function availTimeTemplate(time){
     return `<li>${time}</li>`
