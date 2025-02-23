@@ -1,25 +1,62 @@
+header {
+  box-sizing: border-box;
+  width: 100%;
+  height: min-content;
+  background-color: #759c29;
+  /* background-color: var(--nav-background-color); */
+  display: flex;
+  /* padding-right: 10em; */
+  justify-content: center;
+
+  h1 {
+    display: flex; /* Flexbox로 설정 */
+    align-items: center; /* 세로 중앙 정렬 */
+    color: var(--headline-color-on-color);
+    user-select: none;
+  }
+  h1::before {
+    content: ""; /* content는 반드시 설정해야 함 */
+    display: inline-block; /* 요소를 인라인 블록으로 설정 */
+    width: 5em; /* 이미지의 너비 */
+    height: 5em; /* 이미지의 높이 */
+    background-image: url("WhoAmI_transparent-.png"); /* 이미지 경로 */
+    background-size: cover; /* 이미지 크기를 요소에 맞게 조정 */
+    margin-right: 10px; /* 텍스트와 이미지 간의 간격 */
+  }
+}
 main {
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1em 5%;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
   section.calendar {
     table {
-      margin-left: 20%;
+      thead{
+        td{
+          text-align: center
+        }
+      };
       tbody td {
         width: 2em;
         height: 2em;
         text-align: start;
         vertical-align: top;
         border: 1px solid black;
+        font-size: 1em;
 
         position: relative;
         /* display: inline-block; */
         cursor: pointer;
         margin: 1px;
       }
-      tbody td:hover {
+      tbody td:not(.disabled):hover {
         background-color: grey;
       }
-      tbody td::after {
+      tbody td:not(.disabled)::after {
         /* tooltip */
-        content: "Available Time: \a" attr(data-available-time) "\a 07:00~08:00 \a 17:00~20:00";
+        content: attr(data-available-time);
         width: max-content;
         white-space: pre-line;
         position: absolute;
@@ -35,9 +72,12 @@ main {
         visibility: hidden;
         transition: opacity 0.3s ease-in-out;
       }
-      tbody td:hover::after {
+      tbody td:not(.disabled):hover::after {
         opacity: 1;
         visibility: visible;
+      }
+      tbody td.disabled{
+        background-color: grey;
       }
     }
   }
