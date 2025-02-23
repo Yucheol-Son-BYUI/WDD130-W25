@@ -138,6 +138,7 @@ function renderContributionCalendar(data) {
 }
 
 function renderRepositories(data) {
+  
   const repoListMoreButton = document.querySelector("#projectList .moreProject");
   const avatarUrl = data.user.avatarUrl;
   const repositories = data.user.repositories.nodes;
@@ -146,6 +147,13 @@ function renderRepositories(data) {
   const result = repositories.reduce((acc, repo) => acc + repoTemplate(repo), "")
   console.log(result)
   repoListMoreButton.insertAdjacentHTML("beforebegin", result);
+
+  // render maximum 4 projects at first time
+  const projects = document.querySelectorAll("#projectList .project");
+  console.log(projects)
+  for(i = 4; i < projects.length; i++){
+    projects[i].classList.add('hide');
+  }
 
   function repoTemplate(repo){
     return `
