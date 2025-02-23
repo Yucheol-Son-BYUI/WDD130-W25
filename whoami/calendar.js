@@ -68,16 +68,26 @@ function renderTimeList(e){
 function submitHandler(e){
   e.preventDefault();
   const value = this.timeToMeet.value;
-  console.log("sd")
-  if(!value.includes(":"))
-    return false;
+  // if(!value.includes(":"))
+  //   return false;
   
+  // when only meetingTime(30min) is entered
   const timeText = value.split(":")
   const hour = parseInt(timeText[0])
   const minute = parseInt(timeText[1])
   const meetingTime = parseInt(this.meetingTime.value)
-  if(isNaN(hour) || isNaN(minute) || isNaN(meetingTime))
-    return false;
+  if(!value && meetingTime > 0){
+    console.log("meeting Time only case")
+    const tds = Array.from(document.querySelectorAll(".calendar tbody td"));
+    const availableDays = tds.filter(filterAvailableDayWithMeetingTime);
+    tds.forEach(day => day.style.backgroundColor='white')
+    availableDays.forEach(day => day.style.backgroundColor='#f9ff5e');
+
+    return;
+  }
+  console.log("normal case")
+  // if(isNaN(hour) || isNaN(minute) || isNaN(meetingTime))
+  //   return false;
   
   const tds = Array.from(document.querySelectorAll(".calendar tbody td"));
   const availableDays = tds.filter(filterAvailableDay);
@@ -98,7 +108,42 @@ function submitHandler(e){
     for(i = 0; i < availableTimeArray.length; i++){
       const startTime = availableTimeArray[i][0];
       const endTime = availableTimeArray[i][1];
-      if(searchDate >= startTime && searchDate < endTime)
+      endTime.setMinutes(endTime.getMinutes() - meetingTime);
+      if(searchDate >= startTime && searchDate <= endTime)
+        return true;
+    }
+    return false;
+    // availableTimeArray.
+    
+    function timeRangeToDateArray(timeRange){
+      const timeRangeArr = timeRange.split("~");
+      const firstTimeArr = timeRangeArr[0].split(":")
+      const secondTimeArr = timeRangeArr[1].split(":")
+      
+      const firstDate = new Date(today);
+      firstDate.setHours(parseInt(firstTimeArr[0]))
+      firstDate.setMinutes(parseInt(firstTimeArr[1]))
+      const secondDate = new Date(today);
+      secondDate.setHours(parseInt(secondTimeArr[0]))
+      secondDate.setMinutes(parseInt(secondTimeArr[1]))
+
+      return [firstDate,secondDate]
+    }
+  }
+  function filterAvailableDayWithMeetingTime(td){
+    const today = new Date(td.dataset.date);
+    let availableTimeArray = td.dataset.availableTime.split("\n");
+    availableTimeArray = availableTimeArray.splice(1,availableTimeArray.length-1);
+    availableTimeArray = availableTimeArray.map(timeRangeToDateArray) // [[18:00, 21:00], [21:00, 22:00]]
+    
+
+    for(i = 0; i < availableTimeArray.length; i++){
+      const startTime = availableTimeArray[i][0];
+      const endTime = availableTimeArray[i][1];
+      const diffInMs = endTime.getTime() - startTime.getTime();
+      const diffInMinutes = diffInMs / (1000 * 60);
+
+      if(diffInMinutes >= meetingTime)
         return true;
     }
     return false;
