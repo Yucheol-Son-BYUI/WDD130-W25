@@ -30,7 +30,8 @@ header {
   box-sizing: border-box;
   width: 100%;
   height: min-content;
-  background-color: var(--nav-background-color);
+  background-color: #759c29;
+  /* background-color: var(--nav-background-color); */
   display: flex;
   /* padding-right: 10em; */
   justify-content: center;
@@ -146,7 +147,7 @@ main {
         h3{
           grid-area: 1 / 2 / span 1 / span 1;
           span.language{
-            
+            cursor: pointer;
             padding: 2px 5px;
             margin: 0 3px;
             background-color: rgb(219, 219, 219);

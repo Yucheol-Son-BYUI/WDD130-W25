@@ -179,7 +179,7 @@ function renderRepositories(data) {
     languages.sort((a,b) => b.size - a.size);
     const languageHTML = languages.reduce(languageTemplate(totalSize), "")
     return `
-    <li class="project"><figure class="projectLogo"><img src="${avatarUrl}" width="30px" height="30px"></figure><h3><a href="${
+    <li class="project"><figure class="projectLogo"><img src="${avatarUrl}" width="30px" height="30px" alt="Project Logo"></figure><h3><a href="${
       repo.url
     }" target="blank">${repo.name}</a> ${languageHTML}</h3> <span class="star">⭐${repo.stargazerCount}</span><p>${
       repo.description == null ? "no description" : repo.description
