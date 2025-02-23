@@ -126,23 +126,57 @@ main {
         border: 1px solid black;
         max-width: 100%;
         min-width: 100px;
-        grid-template-columns: minmax(30px, min-content) 1fr 3em;
+        grid-template-columns: auto 1fr;
         grid-template-rows: minmax(45px, min-content) 1fr;
         align-items: center;
         grid-gap: 0.4em;
         figure{
           margin: 0;
+          grid-area: 1 / 1 / span 1 / span 1;
+        }
+        h3{
+          grid-area: 1 / 2 / span 1 / span 1;
+          span.language{
+            
+            padding: 2px 5px;
+            margin: 0 3px;
+            background-color: rgb(219, 219, 219);
+            border-radius: 5px;
+            font-size: 0.7em;
+            user-select: none;
+            position: relative;
+          }
+  
+          span.language:hover {
+            background-color: grey;
+          }
+          span.language::after {
+            content: attr(data-percent) "%";
+            width: max-content;
+            white-space: pre-line;
+            position: absolute;
+            left: 50%;
+            bottom: 120%;
+            transform: translateX(-50%);
+            background-color: black;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out;
+          }
+          span.language:hover::after {
+            opacity: 1;
+            visibility: visible;
+            z-index: 1;
+          }
         }
 
-        span.language{
-          padding: 2px 5px;
-          background-color: rgb(219, 219, 219);
-          border-radius: 5px;
-          font-size: 0.7em;
-          user-select: none;
-        }
 
         span.star{
+          grid-area: 1 / -2 / 2 / -1;
           width: min-content;
           align-self: flex-start;
           justify-self: flex-end;

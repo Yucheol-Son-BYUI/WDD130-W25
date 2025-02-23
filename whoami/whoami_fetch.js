@@ -175,6 +175,7 @@ function renderRepositories(data) {
   function repoTemplate(repo) {
     const languages = repo.languages.edges;
     const totalSize = languages.reduce((acc, cur) => acc + cur.size, 0);
+    languages.sort((a,b) => b.size - a.size);
     const languageHTML = languages.reduce(languageTemplate(totalSize), "")
     return `
     <li class="project"><figure class="projectLogo"><img src="${avatarUrl}" width="30px" height="30px"></figure><h3><a href="${
@@ -185,7 +186,7 @@ function renderRepositories(data) {
   }
   function languageTemplate(totalSize){
     return function(result, language) {
-      return result + `<span class="language" data-percent="${Math.round(1000*language.size/totalSize)/10}">${language.node.name}</span>`;
+      return result + `<span class="language" style="background-color:rgba(219,219,219,${2 * Math.round(10*language.size/totalSize)/10});color:rgba(30,145,214,${2 * Math.round(10*language.size/totalSize)/10})" data-percent="${Math.round(1000*language.size/totalSize)/10}">${language.node.name}</span>`;
     };
   }
 }
