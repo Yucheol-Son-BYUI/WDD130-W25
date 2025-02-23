@@ -173,14 +173,20 @@ function renderRepositories(data) {
   }
 
   function repoTemplate(repo) {
+    const languages = repo.languages.edges;
+    const totalSize = languages.reduce((acc, cur) => acc + cur.size, 0);
+    const languageHTML = languages.reduce(languageTemplate(totalSize), "")
     return `
     <li class="project"><figure class="projectLogo"><img src="${avatarUrl}" width="30px" height="30px"></figure><h3><a href="${
       repo.url
-    }" target="blank">${repo.name}</a> <span class="language">${
-      repo.primaryLanguage.name
-    }</span></h3> <span class="star">⭐${repo.stargazerCount}</span><p>${
+    }" target="blank">${repo.name}</a> ${languageHTML}</h3> <span class="star">⭐${repo.stargazerCount}</span><p>${
       repo.description == null ? "no description" : repo.description
     }</p></li>`;
+  }
+  function languageTemplate(totalSize){
+    return function(result, language) {
+      return result + `<span class="language" data-percent="${Math.round(1000*language.size/totalSize)/10}">${language.node.name}</span>`;
+    };
   }
 }
 
