@@ -38,8 +38,9 @@
       <section class="calendar">
         <h2>Find an available Datetime!</h2>
         <form action="#" id="search">
-          start at <input name="timeToMeet" id="timeToMeet" type="text" placeholder="15:30">
-          last for <input name="meetingTime" id="meetingTime" type="number" step="1" placeholder="90 min">
+          start at <input name="timeToMeet" id="timeToMeet" pattern="([01]?[0-9]|2[0-3]):([012345]?[0-9])" type="text" placeholder="15:30">
+          last for <input name="meetingTime" id="meetingTime" pattern="[0-9]+" type="text" placeholder="90 min" value="0">
+          <button>search</button>
         </form>
         <table>
           <thead>

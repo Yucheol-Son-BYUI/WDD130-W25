@@ -68,6 +68,7 @@ function renderTimeList(e){
 function submitHandler(e){
   e.preventDefault();
   const value = this.timeToMeet.value;
+  console.log("sd")
   if(!value.includes(":"))
     return false;
   
@@ -84,6 +85,7 @@ function submitHandler(e){
   availableDays.forEach(day => day.style.backgroundColor='#f9ff5e')
 
   function filterAvailableDay(td){
+    console.log("d")
     const today = new Date(td.dataset.date);
     let availableTimeArray = td.dataset.availableTime.split("\n");
     availableTimeArray = availableTimeArray.splice(1,availableTimeArray.length-1);
@@ -94,7 +96,9 @@ function submitHandler(e){
     searchDate.setMinutes(minute);
 
     for(i = 0; i < availableTimeArray.length; i++){
-      if(searchDate >= availableTimeArray[i][0] && searchDate < availableTimeArray[i][1])
+      const startTime = availableTimeArray[i][0];
+      const endTime = availableTimeArray[i][1];
+      if(searchDate >= startTime && searchDate < endTime)
         return true;
     }
     return false;
