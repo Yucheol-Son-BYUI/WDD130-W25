@@ -22,25 +22,19 @@ function main(){
   let tempDay = new Date(firstSunday);
   console.log(tempDay, firstSunday)
   tds.forEach((cur) => {
-    const dayText = document.createElement('span');
+    const daySpan = document.createElement('span');
+
     if(tempDay < now){
       cur.classList.add("disabled")
     }else if(tempDay.valueOf() == now.valueOf()){
-      // red circle for today
-      cur.style.display = 'inline-block';
-      cur.style.position = 'relative';
-  
-      dayText.style.position = 'absolute';
-      dayText.style.width = `1em`;
-      dayText.style.height = `1em`;
-      dayText.style.borderRadius = '50%';
-      dayText.style.border = '2px solid red';
+      cur.classList.add('today')
     }
-    let availableTimeText = "Available Time:\n" + availableTimes[tempDay.getDay()].map(time => time + "\n").join("");
+    let availableTimeText = "Available Time:\n" + availableTimes[tempDay.getDay()].join("\n");
 
     cur.setAttribute("data-available-time",availableTimeText);
-    dayText.innerText = tempDay.getDate();
-    cur.insertAdjacentElement("afterbegin",dayText)
+    cur.setAttribute("data-date",tempDay);
+    daySpan.innerText = tempDay.getDate();
+    cur.insertAdjacentElement("afterbegin",daySpan)
 
     tempDay.setDate(tempDay.getDate() + 1);
   } );
@@ -58,10 +52,16 @@ function renderTimeList(e){
     return;
   }
   const timeList = document.querySelector("#timeList");
-  const availableTimeArray = e.target.dataset.availableTime.split("\n");
-  availableTimeArray.shift()
-  availableTimeArray.pop()
-  console.log(availableTimeArray)
+  let availableTimeArray = e.target.dataset.availableTime.split("\n");
+  availableTimeArray = availableTimeArray.splice(1,availableTimeArray.length-1);
+  
+  const result = availableTimeArray.map(availTimeTemplate).join("");
+  timeList.innerHTML= result;
+
+
+  function availTimeTemplate(time){
+    return `<li>${time}</li>`
+  }
 }
 
 main()

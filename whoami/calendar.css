@@ -1,3 +1,12 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+  color: var(--headline-color-on-white);
+}
 header {
   box-sizing: border-box;
   width: 100%;
@@ -29,15 +38,23 @@ main {
   width: 80%;
   margin: 0 auto;
   padding: 1em 5%;
+  padding-bottom: 5em;
   border-left: 1px solid grey;
   border-right: 1px solid grey;
   section.calendar {
     table {
-      thead{
-        td{
-          text-align: center
+      thead {
+        td {
+          text-align: center;
         }
-      };
+      }
+      td.today span{
+        position: absolute;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        border: 2px solid red;
+      }
       tbody td {
         width: 2em;
         height: 2em;
@@ -45,11 +62,13 @@ main {
         vertical-align: top;
         border: 1px solid black;
         font-size: 1em;
+        display: inline-block;
 
         position: relative;
         /* display: inline-block; */
         cursor: pointer;
         margin: 1px;
+
       }
       tbody td:not(.disabled):hover {
         background-color: grey;
@@ -76,9 +95,28 @@ main {
         opacity: 1;
         visibility: visible;
       }
-      tbody td.disabled{
+      tbody td.disabled {
         background-color: grey;
       }
     }
+  }
+  h3 {
+    display: inline-block;
+    margin-right: 1em;
+  }
+  a {
+    display: inline-block;
+    background-color: var(--nav-background-color);
+    padding: 0.1em 0.3em;
+    border: 1px solid black;
+    border-radius: 0.5em;
+    font-size: 1em;
+    color: black;
+    text-decoration: none;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0 1em;
   }
 }
