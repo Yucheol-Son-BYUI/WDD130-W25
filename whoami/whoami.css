@@ -125,6 +125,32 @@ main {
         border: 1px solid black;
         max-width: 100%;
         min-width: 100px;
+        grid-template-columns: minmax(30px, min-content) 1fr 3em;
+        grid-template-rows: minmax(45px, min-content) 1fr;
+        align-items: center;
+        grid-gap: 0.4em;
+        figure{
+          margin: 0;
+        }
+
+        span.language{
+          padding: 2px 5px;
+          background-color: rgb(219, 219, 219);
+          border-radius: 5px;
+          font-size: 0.7em;
+        }
+
+        p{
+          margin: 0;
+          grid-column: 1 / -1;
+          max-height: 6em;
+          display: -webkit-box; /* to make text ellipsis if it exceeds max-height */
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          white-space: normal;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
 
       li:last-child {
