@@ -1,77 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enter Card</title>
-  <meta name="description" content="Introduction to Yucheol Son" />
-  <meta name="author" content="Yucheol Arthor Son" />
-  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-  <link rel="preload" href="nomalize.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="whoami.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <script src="whoami_fetch.js"></script>
-  <script src="whoami.js" defer></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enter Card</title>
+    <meta name="description" content="Introduction to Yucheol Son" />
+    <meta name="author" content="Yucheol Arthor Son" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <link
+      rel="preload"
+      href="nomalize.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      href="whoami.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <script src="whoami_fetch.js"></script>
+    <script src="whoami.js" defer></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Fira+Code:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <!-- <img src="WhoAmI_transparent-.png" alt="Site Logo" width="40px" height="40px"> -->
-    <h1>Introduce to Arthor</h1>
-  </header>
-  <hr>
-  <main>
-    <section class="profile">
-      <h2>Who is Arthor?</h2>
-      <p>Arthor is the international student of BYUI from South Korea. His original name is Yucheol Son. He is majoring in Computer Science. He loves everything related to computers including networking, web developing, algorithm, data science and etc. He wants to learn a wide range of things, just as much as he enjoys diving deep into one, so that he can develop a complete solution on his own. In other words, future fullstack developer(not full-stack overflow). You can explore the projects he has created and the skills he has learned below.</p>
-    </section>
-    <section class="contribution-calendar">
-      <h2>Github Contribution Calendar</h2>
-      <div class="container">
-        <table id="calendar-table">
-          <tbody></tbody>
-        </table>
-      </div>
-    </section>
-    <section class="projects">
-      <h2>Projects</h2>
-      <ul id="projectList" data-visible-project="4">
-        <!-- todo: padding -->
-        <li class="project"><figure class="projectLogo"><img src="https://avatars.githubusercontent.com/u/194271853?v=4" width="30px" height="30px"></figure><h3><a href="https://github.com/Yucheol-Son-BYUI/mission" target="blank">Dummy Project</a></h3><span class="language">HTML</span><p>These are the dummy project to show that this page is reponsible and dynamic.</p></li>
-        <li class="project"><figure class="projectLogo"><img src="https://avatars.githubusercontent.com/u/194271853?v=4" width="30px" height="30px"></figure><h3><a href="https://github.com/Yucheol-Son-BYUI/mission" target="blank">Dummy Project</a></h3><span class="language">HTML</span><p>These are the dummy project to show that this page is reponsible and dynamic.</p></li>
-        <li class="project"><figure class="projectLogo"><img src="https://avatars.githubusercontent.com/u/194271853?v=4" width="30px" height="30px"></figure><h3><a href="https://github.com/Yucheol-Son-BYUI/mission" target="blank">Dummy Project</a></h3><span class="language">HTML</span><p>These are the dummy project to show that this page is reponsible and dynamic.</p></li>
-        <li class="project"><figure class="projectLogo"><img src="https://avatars.githubusercontent.com/u/194271853?v=4" width="30px" height="30px"></figure><h3><a href="https://github.com/Yucheol-Son-BYUI/mission" target="blank">Dummy Project</a></h3><span class="language">HTML</span><p>These are the dummy project to show that this page is reponsible and dynamic.</p></li>
-        <li class="moreProject">More+(button)</li>
-      </ul>
-    </section>
-    <section class="skills">
-      <h2>Skills</h2>
-      <ul class="skillList">
-        <li class="skill"><img src="https://img.icons8.com/?size=16&id=750nXG40bbAS&format=png&color=000000" alt="">HTML</li>
-        <li class="skill"><img src="https://img.icons8.com/?size=16&id=tMmrkoHoqp87&format=png&color=000000" alt="">JS</li>
-        <li class="skill"><img src="https://img.icons8.com/?size=16&id=YjeKwnSQIBUq&format=png&color=000000" alt="">CSS</li>
-        <li class="skill"><img src="https://img.icons8.com/?size=16&id=13441&format=png&color=000000" alt="">Python</li>
-        <li class="skill"><img src="https://img.icons8.com/?size=16&id=13679&format=png&color=000000" alt="">JAVA</li>
-        <li class="skill"><img src="https://img.icons8.com/?size=16&id=cBH2hegMpNTy&format=png&color=000000" alt="">C#</li>
-        <li class="skill"><img src="https://img.icons8.com/?size=16&id=UFXRpPFebwa2&format=png&color=000000" alt="">MySQL</li>
-        <li class="skill"><img src="https://img.icons8.com/?size=16&id=20906&format=png&color=000000" alt="">Git</li>
-        <li class="skill"><img src="https://img.icons8.com/?size=16&id=90519&format=png&color=000000" alt="">Spring Boot</li>
-        <li class="skill"><img src="https://img.icons8.com/?size=16&id=zEO7WSnmwc9k&format=png&color=000000" alt="">MyBatis</li>
-        <li class="skill"><img src="https://static.wixstatic.com/media/b1d1b1_a1e83521c45a46889da6b9e25d498b72~mv2.png/v1/fill/w_16,h_16,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/JPA-icon.png" alt="">JPA</li>
-        <li class="skill"><img src="https://img.icons8.com/?size=16&id=33039&format=png&color=000000" alt="">AWS</li>
-      </ul>
-    </section>
-    <section class="contact">
-      <h2>Contact</h2>
-      <ul>
-        <li>TEL: 000-000-0000</li>
-        <li>Email: son20001@byui.edu</li>
-        <li>Wanna make appointment?(LINK)</li>
-      </ul>
-    </section>
-  </main>
-  <footer></footer>
-</body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Fira+Code:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- <img src="WhoAmI_transparent-.png" alt="Site Logo" width="40px" height="40px"> -->
+      <h1>Introduce to Arthor</h1>
+    </header>
+    <hr />
+    <main>
+      <section class="profile">
+        <h2>Who is Arthor?</h2>
+        <p>
+          Arthor is the international student of BYUI from South Korea. His
+          original name is Yucheol Son. He is majoring in Computer Science. He
+          loves everything related to computers including networking, web
+          developing, algorithm, data science and etc. He wants to learn a wide
+          range of things, just as much as he enjoys diving deep into one, so
+          that he can develop a complete solution on his own. In other words,
+          future fullstack developer(not full-stack overflow). You can explore
+          the projects he has created and the skills he has learned below.
+        </p>
+      </section>
+      <section class="contribution-calendar">
+        <h2>Github Contribution Calendar</h2>
+        <div class="container">
+          <table id="calendar-table">
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+      <section class="projects">
+        <h2>Projects</h2>
+        <ul id="projectList" data-visible-project="4">
+          <!-- todo: padding -->
+          <li class="project">
+            <figure class="projectLogo">
+              <img
+                src="https://avatars.githubusercontent.com/u/194271853?v=4"
+                width="30px"
+                height="30px"
+              />
+            </figure>
+            <h3>
+              <a
+                href="https://github.com/Yucheol-Son-BYUI/mission"
+                target="blank"
+                >Dummy Project</a
+              > <span class="language">HTML</span>
+            </h3>
+            <span class="star">⭐3</span>
+            <p>
+              These are the dummy project to show that this page is reponsible and dynamic. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+          </li>
+          <li class="project">
+            <figure class="projectLogo">
+              <img
+                src="https://avatars.githubusercontent.com/u/194271853?v=4"
+                width="30px"
+                height="30px"
+              />
+            </figure>
+            <h3>
+              <a
+                href="https://github.com/Yucheol-Son-BYUI/mission"
+                target="blank"
+                >Dummy Project</a
+              > <span class="language">HTML</span>
+            </h3>
+            <span class="star">⭐3</span>
+            <p>
+              These are the dummy project to show that this page is reponsible and dynamic. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+          </li>
+          <li class="project">
+            <figure class="projectLogo">
+              <img
+                src="https://avatars.githubusercontent.com/u/194271853?v=4"
+                width="30px"
+                height="30px"
+              />
+            </figure>
+            <h3>
+              <a
+                href="https://github.com/Yucheol-Son-BYUI/mission"
+                target="blank"
+                >Dummy Project</a
+              > <span class="language">HTML</span>
+            </h3>
+            <span class="star">⭐3</span>
+            <p>
+              These are the dummy project to show that this page is reponsible and dynamic. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+          </li>
+          <li class="project">
+            <figure class="projectLogo">
+              <img
+                src="https://avatars.githubusercontent.com/u/194271853?v=4"
+                width="30px"
+                height="30px"
+              />
+            </figure>
+            <h3>
+              <a
+                href="https://github.com/Yucheol-Son-BYUI/mission"
+                target="blank"
+                >Dummy Project</a
+              > <span class="language">HTML</span>
+            </h3>
+            <span class="star">⭐3</span>
+            <p>
+              These are the dummy project to show that this page is reponsible and dynamic. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+          </li>
+          <li class="moreProject">More+(button)</li>
+        </ul>
+      </section>
+      <section class="skills">
+        <h2>Skills</h2>
+        <ul class="skillList">
+          <li class="skill">
+            <img
+              src="https://img.icons8.com/?size=16&id=750nXG40bbAS&format=png&color=000000"
+              alt=""
+            />HTML
+          </li>
+          <li class="skill">
+            <img
+              src="https://img.icons8.com/?size=16&id=tMmrkoHoqp87&format=png&color=000000"
+              alt=""
+            />JS
+          </li>
+          <li class="skill">
+            <img
+              src="https://img.icons8.com/?size=16&id=YjeKwnSQIBUq&format=png&color=000000"
+              alt=""
+            />CSS
+          </li>
+          <li class="skill">
+            <img
+              src="https://img.icons8.com/?size=16&id=13441&format=png&color=000000"
+              alt=""
+            />Python
+          </li>
+          <li class="skill">
+            <img
+              src="https://img.icons8.com/?size=16&id=13679&format=png&color=000000"
+              alt=""
+            />JAVA
+          </li>
+          <li class="skill">
+            <img
+              src="https://img.icons8.com/?size=16&id=cBH2hegMpNTy&format=png&color=000000"
+              alt=""
+            />C#
+          </li>
+          <li class="skill">
+            <img
+              src="https://img.icons8.com/?size=16&id=UFXRpPFebwa2&format=png&color=000000"
+              alt=""
+            />MySQL
+          </li>
+          <li class="skill">
+            <img
+              src="https://img.icons8.com/?size=16&id=20906&format=png&color=000000"
+              alt=""
+            />Git
+          </li>
+          <li class="skill">
+            <img
+              src="https://img.icons8.com/?size=16&id=90519&format=png&color=000000"
+              alt=""
+            />Spring Boot
+          </li>
+          <li class="skill">
+            <img
+              src="https://img.icons8.com/?size=16&id=zEO7WSnmwc9k&format=png&color=000000"
+              alt=""
+            />MyBatis
+          </li>
+          <li class="skill">
+            <img
+              src="https://static.wixstatic.com/media/b1d1b1_a1e83521c45a46889da6b9e25d498b72~mv2.png/v1/fill/w_16,h_16,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/JPA-icon.png"
+              alt=""
+            />JPA
+          </li>
+          <li class="skill">
+            <img
+              src="https://img.icons8.com/?size=16&id=33039&format=png&color=000000"
+              alt=""
+            />AWS
+          </li>
+        </ul>
+      </section>
+      <section class="contact">
+        <h2>Contact</h2>
+        <ul>
+          <li>TEL: 000-000-0000</li>
+          <li>Email: son20001@byui.edu</li>
+          <li>Wanna make appointment?(LINK)</li>
+        </ul>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
 </html>

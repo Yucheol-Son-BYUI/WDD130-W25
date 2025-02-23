@@ -149,7 +149,7 @@ function renderRepositories(data) {
 
   function repoTemplate(repo){
     return `
-    <li class="project"><figure class="projectLogo"><img src="${avatarUrl}" width="30px" height="30px"></figure><h3><a href="${repo.url}" target="blank">${repo.name}</a></h3><span class="language">${repo.primaryLanguage.name}</span><p>${repo.description == null ? "no description" : repo.description}</p></li>`
+    <li class="project"><figure class="projectLogo"><img src="${avatarUrl}" width="30px" height="30px"></figure><h3><a href="${repo.url}" target="blank">${repo.name}</a> <span class="language">${repo.primaryLanguage.name}</span></h3> <span class="star">⭐${repo.stargazerCount}</span><p>${repo.description == null ? "no description" : repo.description}</p></li>`
   }
 }
 
