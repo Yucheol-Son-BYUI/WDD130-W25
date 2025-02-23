@@ -137,7 +137,7 @@ function renderContributionCalendar(data) {
       const cur = data.weeks[week].contributionDays[day];
       trHTML[
         day
-      ] += `<td class="contributionDay" style="background-color:${cur.color}" data-date="${cur.date}" data-contribution-count="${cur.contributionCount}"></td>`;
+      ] += `<td class="contributionDay" style="background-color:${cur.color}" data-date="${cur.contributionCount == 0 ? "" : cur.date + "\n"}" data-contribution-count="${cur.contributionCount == 0 ? "No contribution on " + cur.date : "commit: " + cur.contributionCount}"></td>`;
     }
   }
   let result = trHTML.reduce((acc, tr) => (acc += `<tr>` + tr + `</tr>`));
