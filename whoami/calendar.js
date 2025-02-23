@@ -22,22 +22,19 @@ function main(){
   let tempDay = new Date(firstSunday);
   console.log(tempDay, firstSunday)
   tds.forEach((cur) => {
-    const dayText = document.createElement('span'); // 동그라미를 위한 새로운 span 요소 생성
+    const dayText = document.createElement('span');
     if(tempDay < now){
       cur.classList.add("disabled")
     }else if(tempDay.valueOf() == now.valueOf()){
-      // 텍스트에 빨간 동그라미 스타일 적용
-      cur.style.display = 'inline-block'; // li를 inline-block으로 설정하여 동그라미 크기 조절 가능
-      cur.style.position = 'relative'; // 자식 요소를 position 절대 위치로 설정하기 위해 필요
+      // red circle for today
+      cur.style.display = 'inline-block';
+      cur.style.position = 'relative';
   
-      dayText.style.position = 'absolute'; // 동그라미를 li 요소의 텍스트 주위에 절대 위치로 배치
-      // dayText.style.top = '50%'; // 세로 가운데 정렬
-      // dayText.style.left = '50%'; // 가로 가운데 정렬
-      // dayText.style.transform = 'translate(-50%, -50%)'; // 정확히 중앙에 위치하도록 조정
-      dayText.style.width = `1em`; // li의 width를 동그라미의 크기로 설정
-      dayText.style.height = `1em`; // li의 height를 동그라미의 크기로 설정
-      dayText.style.borderRadius = '50%'; // 원 모양으로 만들기 위해 border-radius를 50%로 설정
-      dayText.style.border = '2px solid red'; // 빨간색 테두리 설정
+      dayText.style.position = 'absolute';
+      dayText.style.width = `1em`;
+      dayText.style.height = `1em`;
+      dayText.style.borderRadius = '50%';
+      dayText.style.border = '2px solid red';
     }
     let availableTimeText = "Available Time:\n" + availableTimes[tempDay.getDay()].map(time => time + "\n").join("");
 
