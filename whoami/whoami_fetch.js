@@ -138,14 +138,14 @@ function renderContributionCalendar(data) {
 }
 
 function renderRepositories(data) {
-  const repoList = document.querySelector("#projectList");
+  const repoListMoreButton = document.querySelector("#projectList .moreProject");
   const avatarUrl = data.user.avatarUrl;
   const repositories = data.user.repositories.nodes;
   console.log(repositories)
   
   const result = repositories.reduce((acc, repo) => acc + repoTemplate(repo), "")
   console.log(result)
-  repoList.insertAdjacentHTML("afterbegin", result);
+  repoListMoreButton.insertAdjacentHTML("beforebegin", result);
 
   function repoTemplate(repo){
     return `
