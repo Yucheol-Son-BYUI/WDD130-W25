@@ -54,10 +54,13 @@ function renderTimeList(e){
   const timeList = document.querySelector("#timeList");
   let availableTimeArray = e.target.dataset.availableTime.split("\n");
   availableTimeArray = availableTimeArray.splice(1,availableTimeArray.length-1);
-  
-  const result = availableTimeArray.map(availTimeTemplate).join("");
+  const date = new Date(e.target.dataset.date)
+  const result = `<li>${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}</li>` + availableTimeArray.map(availTimeTemplate).join("");
   timeList.innerHTML= result;
 
+  const mailTo = document.querySelector(".calendar a");
+  formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  mailTo.setAttribute("href","mailto:son20001@byui.edu?subject=Meeting Request for " + formattedDate + "&body=Dear [Recipient's Name],%0A%0AI hope this email finds you well. I would like to request a meeting with you on " + formattedDate +", to discuss [the purpose of the meeting].%0A%0APlease let me know if this date works for you or if another time would be more convenient.%0A%0AThank you for your time and consideration.%0A%0ABest regards, %0A [Your Name]")
 
   function availTimeTemplate(time){
     return `<li>${time}</li>`

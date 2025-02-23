@@ -102,6 +102,7 @@ main {
   h3 {
     display: inline-block;
     margin-right: 1em;
+    margin-bottom: 0em;
   }
   a {
     display: inline-block;
@@ -117,5 +118,10 @@ main {
   ul {
     margin: 0;
     padding: 0 1em;
+    li:first-child{
+      list-style: none;
+      margin-left: -1em;
+      font-weight: bold;
+    }
   }
 }
