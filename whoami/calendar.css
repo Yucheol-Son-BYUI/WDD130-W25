@@ -7,6 +7,18 @@ h6 {
   font-family: var(--heading-font);
   color: var(--headline-color-on-white);
 }
+.modalButton{
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.availableDay{
+  background-color: #f9ff5e;
+}
+.selectedDay{
+  background-color: #20ff51;
+}
 header {
   box-sizing: border-box;
   width: 100%;
@@ -42,6 +54,12 @@ main {
   border-left: 1px solid grey;
   border-right: 1px solid grey;
   section.calendar {
+    h2{
+      
+      img{
+        cursor: pointer;
+      }
+    }
     table {
       thead {
         td {
@@ -70,7 +88,7 @@ main {
 
       }
       tbody td:not(.disabled):hover {
-        background-color: grey;
+        background-color: #20ff51;
       }
       tbody td:not(.disabled)::after {
         /* tooltip */
@@ -95,7 +113,7 @@ main {
         visibility: visible;
       }
       tbody td.disabled {
-        background-color: grey;
+        background-color: grey !important;
       }
     }
   }
@@ -103,6 +121,7 @@ main {
     display: inline-block;
     margin-right: 1em;
     margin-bottom: 0em;
+
   }
   a {
     display: inline-block;
@@ -137,4 +156,15 @@ main {
       -webkit-appearance: none;
     }
   }
+}
+
+
+dialog {
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
 }

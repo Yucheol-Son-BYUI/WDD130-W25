@@ -60,7 +60,9 @@ function renderTimeList(e){
   const mailTo = document.querySelector(".calendar a");
   formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   mailTo.setAttribute("href","mailto:son20001@byui.edu?subject=Meeting Request for " + formattedDate + "&body=Dear Yucheol Arthur Son,%0A%0AI hope this email finds you well. I would like to request a meeting with you at [the time you want to meet] on " + formattedDate +", to discuss [the purpose of the meeting].%0A%0APlease let me know if this date works for you or if another time would be more convenient.%0A%0AThank you for your time and consideration.%0A%0ABest regards, %0A [Your Name]")
-
+  const tds = Array.from(document.querySelectorAll(".calendar tbody td"));
+  tds.forEach(td => td.classList.remove("selectedDay"));
+  e.target.classList.add('selectedDay')
   function availTimeTemplate(time){
     return `<li>${time}</li>`
   }
@@ -80,8 +82,8 @@ function submitHandler(e){
     console.log("meeting Time only case")
     const tds = Array.from(document.querySelectorAll(".calendar tbody td"));
     const availableDays = tds.filter(filterAvailableDayWithMeetingTime);
-    tds.forEach(day => day.style.backgroundColor='white')
-    availableDays.forEach(day => day.style.backgroundColor='#f9ff5e');
+    tds.forEach(day => day.classList.remove('availableDay'))
+    availableDays.forEach(day => day.classList.add('availableDay'));
 
     return;
   }
@@ -91,8 +93,8 @@ function submitHandler(e){
   
   const tds = Array.from(document.querySelectorAll(".calendar tbody td"));
   const availableDays = tds.filter(filterAvailableDay);
-  tds.forEach(day => day.style.backgroundColor='white')
-  availableDays.forEach(day => day.style.backgroundColor='#f9ff5e')
+  tds.forEach(day => day.classList.remove('availableDay'))
+  availableDays.forEach(day => day.classList.add('availableDay'))
 
   function filterAvailableDay(td){
     console.log("d")
