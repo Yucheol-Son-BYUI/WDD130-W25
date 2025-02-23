@@ -53,4 +53,17 @@ function getFirstSunday(){
   return firstSunday
 }
 
+function renderTimeList(e){
+  if (e.target.tagName != 'TD' || e.target.classList.contains('disabled')) {
+    return;
+  }
+  const timeList = document.querySelector("#timeList");
+  const availableTimeArray = e.target.dataset.availableTime.split("\n");
+  availableTimeArray.shift()
+  availableTimeArray.pop()
+  console.log(availableTimeArray)
+}
+
 main()
+
+document.querySelector(".calendar tbody").addEventListener('click', renderTimeList);
