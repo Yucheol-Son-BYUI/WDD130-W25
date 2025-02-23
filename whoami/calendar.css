@@ -127,7 +127,14 @@ main {
 
   form{
     input{
-      width: 3em;
+      width: 2.5em;
+      -moz-appearance: textfield;
+    }
+    #meetingTime{
+      width: 4em;
+    }
+    input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
+      -webkit-appearance: none;
     }
   }
 }

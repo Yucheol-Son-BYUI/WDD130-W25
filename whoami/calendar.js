@@ -74,7 +74,8 @@ function submitHandler(e){
   const timeText = value.split(":")
   const hour = parseInt(timeText[0])
   const minute = parseInt(timeText[1])
-  if(isNaN(hour) || isNaN(minute))
+  const meetingTime = parseInt(this.meetingTime.value)
+  if(isNaN(hour) || isNaN(minute) || isNaN(meetingTime))
     return false;
   
   const tds = Array.from(document.querySelectorAll(".calendar tbody td"));
