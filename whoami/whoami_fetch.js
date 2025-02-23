@@ -156,7 +156,8 @@ function renderRepositories(data) {
     (acc, repo) => acc + repoTemplate(repo),
     ""
   );
-  repoListMoreButton.insertAdjacentHTML("beforebegin", result);
+  // repoListMoreButton.insertAdjacentHTML("beforebegin", result);
+  projectList.insertAdjacentHTML("afterbegin", result)
 
   // render maximum 4 projects at first time
   const projects = document.querySelectorAll("#projectList .project");
