@@ -47,13 +47,14 @@ function getFirstSunday(){
 }
 
 function renderTimeList(e){
-  if (e.target.tagName != 'TD' || e.target.classList.contains('disabled')) {
+  if ((e.target.tagName != 'SPAN' && e.target.tagName != 'TD') || e.target.classList.contains('disabled')) {
     return;
   }
+  const targetTD = e.target.closest("td"); 
   const timeList = document.querySelector("#timeList");
-  let availableTimeArray = e.target.dataset.availableTime.split("\n");
+  let availableTimeArray = targetTD.dataset.availableTime.split("\n");
   availableTimeArray = availableTimeArray.splice(1,availableTimeArray.length-1);
-  const date = new Date(e.target.dataset.date)
+  const date = new Date(targetTD.dataset.date)
   const result = `<li>${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}</li>` + availableTimeArray.map(availTimeTemplate).join("");
   timeList.innerHTML= result;
 
@@ -62,7 +63,7 @@ function renderTimeList(e){
   mailTo.setAttribute("href","mailto:son20001@byui.edu?subject=Meeting Request for " + formattedDate + "&body=Dear Yucheol Arthur Son,%0A%0AI hope this email finds you well. I would like to request a meeting with you at [the time you want to meet] on " + formattedDate +", to discuss [the purpose of the meeting].%0A%0APlease let me know if this date works for you or if another time would be more convenient.%0A%0AThank you for your time and consideration.%0A%0ABest regards, %0A [Your Name]")
   const tds = Array.from(document.querySelectorAll(".calendar tbody td"));
   tds.forEach(td => td.classList.remove("selectedDay"));
-  e.target.classList.add('selectedDay')
+  targetTD.classList.add('selectedDay')
   function availTimeTemplate(time){
     return `<li>${time}</li>`
   }

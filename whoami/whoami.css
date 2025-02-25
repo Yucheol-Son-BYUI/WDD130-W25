@@ -267,6 +267,7 @@ footer{
   width: 100%;
   padding: 2em 15%;
   background-color: rgb(92, 92, 92);
+  box-sizing: border-box;
   color: white;
   h2{
     color: white;
