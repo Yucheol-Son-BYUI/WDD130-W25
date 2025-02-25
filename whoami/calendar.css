@@ -43,6 +43,7 @@ header {
       display: flex;
       align-items: center;
       text-decoration: none;
+      font-family: inherit;
     }
   }
   a::before {
@@ -170,6 +171,7 @@ main {
 footer{
   width: 100%;
   padding: 2em 15%;
+  box-sizing: border-box;
   background-color: rgb(92, 92, 92);
   color: white;
   h2{
